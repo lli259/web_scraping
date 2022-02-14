@@ -1,0 +1,92 @@
+1了解网页；
+2使用 requests 库抓取网站数据；
+3使用 Beautiful Soup 解析网页；
+4清洗和组织数据；
+5爬虫攻防战；
+
+
+1
+网页一般由三部分组成，分别是 HTML（超文本标记语言）、CSS（层叠样式表）和 JScript（活动脚本语言）
+HTML
+<html>..</html> 表示标记中间的元素是网页
+<body>..</body> 表示用户可见的内容
+<div>..</div> 表示框架
+<p>..</p> 表示段落
+<li>..</li>表示列表
+<img>..</img>表示图片
+<h1>..</h1>表示标题
+<a href="">..</a>表示超链接
+
+CSS
+CSS 表示样式，图 1 中第 13 行＜style type=＂text/css＂＞表示下面引用一个 CSS，在 CSS 中定义了外观。
+
+JScript
+JScript 表示功能。交互的内容和各种特效都在 JScript 中，JScript 描述了网站中的各种功能。
+
+HTML骨架，嘴巴长哪，
+CSS细节，嘴巴什么样
+JScript技能，说唱
+
+
+<html>
+<head>
+    <title> Python 3 爬虫与数据清洗入门与实战</title>
+</head>
+<body>
+    <div>
+        <p>Python 3爬虫与数据清洗入门与实战</p>
+    </div>
+    <div>
+        <ul>
+            <li><a href="http://c.biancheng.net">爬虫</a></li>
+            <li>数据清洗</li>
+        </ul>
+    </div>
+</body>
+
+robots.txt: which files are accessible
+www.taobao.com/robots.txt
+
+
+import requests
+Get/Post
+
+Get
+import requests        
+url = 'http://www.cntour.cn/'
+strhtml = requests.get(url)  
+print(strhtml.text)
+
+Post（表格 DATA）
+输入文字-开发者模式-Network-XHR-Headers-POST
+url = 'http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule'
+form_data={'i':, 'j':,...}
+response = requests.post(url,data=form_data)
+
+
+Request headers 中构造浏览器的请求头，封装自己 (kaifazhe mode)
+useragent : user or robot
+
+Find Get-User-Agent
+headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'}
+response = request.get(url,headers=headers)
+
+import time
+time.sleep(3)
+
+使用代理,requests-proxies
+proxies={
+    "http":"http://10.10.1.10:3128",
+    "https":"http://10.10.1.10:1080",
+}
+response = requests.get(url, proxies=proxies)
+
+
+Other tools
+爬虫
+scrapy
+
+自动化
+splinder
+
+beautiful soup
